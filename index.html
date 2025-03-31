@@ -30,6 +30,23 @@
         .botoes-fonte button:hover {
             background: #f0f0f0;
         }
+
+        /* Estilo do botão para alternar o tema */
+        .botao-tema {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .botao-tema:hover {
+            background: #f0f0f0;
+        }
     </style>
 </head>
 
@@ -127,11 +144,17 @@
         <button id="diminuirFonte">A-</button>
     </div>
 
+    <!-- Botão para alternar tema -->
+    <div class="botao-tema" id="botaoTema">
+        Mudar Tema
+    </div>
+
     <script>
         const audio = document.getElementById('audio'); 
         const playButton = document.getElementById('playButton');
         const aumentarFonte = document.getElementById('aumentarFonte');
         const diminuirFonte = document.getElementById('diminuirFonte');
+        const botaoTema = document.getElementById('botaoTema');
 
         playButton.addEventListener('click', () => {
             if (audio.paused) {
@@ -152,7 +175,33 @@
 
         aumentarFonte.addEventListener('click', () => ajustarFonte(2));
         diminuirFonte.addEventListener('click', () => ajustarFonte(-2));
+
+        botaoTema.addEventListener('click', () => {
+            document.body.classList.toggle('modo-escuro');
+        });
     </script>
+
+    <style>
+        /* Estilos para o modo escuro */
+        .modo-escuro {
+            background-color: #121212;
+            color: white;
+        }
+        .modo-escuro .nav-link {
+            color: white;
+        }
+        .modo-escuro .btn {
+            background-color: #333;
+            color: white;
+        }
+        .modo-escuro .btn:hover {
+            background-color: #444;
+        }
+        .modo-escuro footer {
+            background-color: #333;
+            color: white;
+        }
+    </style>
 
 </body>
 
